@@ -1,0 +1,37 @@
+﻿@using Personels.Models
+@model List<Personel>
+@{
+    ViewData["Title"] = "Personel Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="form-group">
+<a href="/Personel/YeniPersonel/" class="btn btn-primary">Yeni Personel Ekle</a>
+</div>
+<div class="form-group">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Personel Adı Soyadı</th>
+        <th scope="col">Şehir</th>
+        <th scope="col">Departmanı</th>
+        <th scope="col">Sil</th>
+        <th scope="col">Güncelle</th>
+    </tr>
+    </thead>
+     <tbody>
+    @foreach (var x in Model)
+   {
+        <tr>
+        <td scope="row">@x.PersonelID</td>
+        <td>@x.Ad @x.Soyad</td>
+        <td >@x.Sehir</td>
+        <td >@x.Birim.BirimAdı</td>
+        <td ><a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-danger">Sil</a></td>
+        <td ><a href="/Personel/Personel/@x.PersonelID" class="btn btn-success">Güncelle</a></td>
+    </tr>
+   }
+    </tbody>
+</table>
+</div>
+

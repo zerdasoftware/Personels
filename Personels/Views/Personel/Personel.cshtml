@@ -1,0 +1,28 @@
+﻿@model Personels.Models.Personel
+@{
+    ViewData["Title"] = "Personel Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    <b>Personel ID</b>
+    @Html.TextBoxFor(x=> x.PersonelID, new {@class="form-control"})
+    <br />
+    <b>Personel Adı</b>
+    @Html.TextBoxFor(x=> x.Ad, new {@class="form-control"})
+    <br />
+    <b>Personel Soyadı</b>
+    @Html.TextBoxFor(x=> x.Soyad, new {@class="form-control"})
+    <br />
+    <b>Şehr</b>
+    @Html.TextBoxFor(x=> x.Sehir, new {@class="form-control"})
+    <br />
+    <b>Birimi</b>
+    @Html.DropDownListFor(x=>x.Birim.BirimId,(List<SelectListItem>)ViewBag.dgr,new{@class="form-control"})
+    <br />
+    <button class="btn btn-primary">Personeli Güncelle</button>
+
+}
+
